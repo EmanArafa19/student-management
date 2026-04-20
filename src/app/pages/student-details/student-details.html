@@ -1,0 +1,65 @@
+<div class="details-page" *ngIf="student">
+    <div class="container mt-5">
+        <div class="card details-card shadow-lg p-4">
+
+            <h3 class="mb-4 text-center"> Student Details</h3>
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <span>Name</span>
+                        <h6>{{student.firstName}} {{student.lastName}}</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <span>Email</span>
+                        <h6>{{student.email}}</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <span>Phone</span>
+                        <h6>{{student.phone}}</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <span>Department</span>
+                        <h6>{{student.department}}</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <span>GPA</span>
+                        <h6>{{student.GPA}}</h6>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <span>Status</span>
+                        <div>
+                            <span class="custom-badge active" *ngIf="student.isActive">Active</span>
+                            <span class="custom-badge inactive" *ngIf="!student.isActive">Inactive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="info-box">
+                        <span>Address</span>
+                        <h6>{{student.address}}, {{student.city}}, {{student.country}}</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

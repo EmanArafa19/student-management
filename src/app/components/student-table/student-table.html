@@ -1,0 +1,32 @@
+<div class="container mt-4 students-page">
+    <h2 class="mb-4 page-title"> Students List</h2>
+
+    <div class="table-card shadow-lg">
+        <table class="table custom-table mb-0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Department</th>
+                    <th>GPA</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let student of students">
+                    <td>{{student.id}}</td>
+                    <td>{{student.firstName}} {{student.lastName}}</td>
+                    <td>{{student.age}}</td>
+                    <td>{{student.department}}</td>
+                    <td>{{student.GPA}}</td>
+                    <td>
+                        <button class="btn btn-view btn-sm me-2" (click)="view(student.id)">View</button>
+                        <button class="btn btn-delete btn-sm" (click)="deleteStudent(student.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

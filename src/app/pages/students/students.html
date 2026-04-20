@@ -1,0 +1,40 @@
+<div class="filters-container">
+    <div class="search-box">
+        <input type="text" [(ngModel)]="searchName" (input)="applyFilters()" placeholder=" Search by name..." class="search-input" />
+    </div>
+
+    <div class="department-filter">
+        <select [(ngModel)]="selectedDepartment" (change)="applyFilters()" class="department-select">
+            <option value="">All Departments</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Business">Business</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Artificial Intelligence">Artificial Intelligence</option>
+        </select>
+    </div>
+</div>
+
+<div *ngIf="(filteredStudents$ | async)?.length === 0 && (students$ | async)?.length !== 0" class="empty-state">
+    <div class="empty-card shadow">
+        <h4>No Results Found</h4>
+        <p class="text-muted">No students match "{{searchName}}" in {{selectedDepartment || 'any department'}}.</p>
+        <button (click)="clearFilters()" class="btn btn-primary mt-3">
+            Clear Filters
+        </button>
+    </div>
+</div>
+
+<div *ngIf="(students$ | async)?.length === 0" class="empty-state">
+    <div class="empty-card shadow">
+        <div class="icon">🎓</div>
+        <h4>No Students Yet</h4>
+        <p class="text-muted">Start by adding your first student to the system.</p>
+        <a routerLink="/add-student" class="btn btn-primary mt-3">
+            Add Student
+        </a>
+    </div>
+</div>
+
+<app-student-table [students]="(filteredStudents$ | async) || []" (delete)="onDelete($event)">
+</app-student-table>
