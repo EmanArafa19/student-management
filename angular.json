@@ -3,7 +3,7 @@
     "version": 1,
     "cli": {
         "packageManager": "npm",
-        "analytics": "b04f4f99-96fe-47a4-95a1-ccfecd6d2a4b"
+        "analytics": "6de90697-e041-44bb-8174-fdb6aef1644d"
     },
     "newProjectRoot": "projects",
     "projects": {
@@ -20,8 +20,7 @@
                         "tsConfig": "tsconfig.app.json",
                         "assets": [{
                             "glob": "**/*",
-                            "input": "src/app/assets",
-                            "output": "assets"
+                            "input": "public"
                         }],
                         "styles": [
                             "src/styles.css"
